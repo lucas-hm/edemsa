@@ -11,8 +11,8 @@ const URL = ""; //url de coneccion a Mongodb
 
 const cliente = new MongoClient(URL);
 
-const dbnombre = "users";
-const coleccion = "Usuarios";
+const dbnombre = "data";
+const coleccion = "edemsa";
 let DB_coleccion = cliente.db(dbnombre).collection(coleccion); //node_prueba.Usuarios
 
 app.use(bodyParser.urlencoded({
