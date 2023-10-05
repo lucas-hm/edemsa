@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { MongoClient } = require('mongodb');
-const URL = ""; //url de coneccion a Mongodb
+const URL = "mongodb://root:example@10.1.0.16:27017/data/edemsa"; //url de coneccion a Mongodb
 
 const cliente = new MongoClient(URL);
 
@@ -35,11 +35,39 @@ app.get('*', (req, res)=> {
   res.sendFile(index);
 });
 
-app.post('/crearCuenta', async (req, res)=>{
-  console.log(req.body)
-  let insertUser = await DB_coleccion.insertOne(req.body)
- res.send({"msg":"everything went correctly"})
-})
+mongoose.connect('mongodb://root:example@10.1.0.16:27017/data/edemsa', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+// Definir un esquema para los datos que deseas almacenar
+const machineSchema = new mongoose.Schema({
+  user: String,
+  ID: String,
+  garantia: Number,
+  month: String,
+  days: String
+});
+
+// Crear un modelo a partir del esquema
+const Machine = mongoose.model('Machine', machineSchema);
+
+// Middleware para analizar datos JSON en las solicitudes POST
+app.use(bodyParser.json());
+
+// Ruta para guardar datos en la base de datos
+app.post('/guardar-datos', async (req, res) => {
+  try {
+    const { user, ID, garantia, month, days } = req.body;
+    const machine = new Machine({ user, ID, garantia, month, days });
+    await machine.save();
+    res.status(201).json({ message: 'Datos guardados con éxito' });
+  } catch (error) {
+    console.error('Error al guardar datos:', error);
+    res.status(500).json({ error: 'Hubo un error al guardar los datos' });
+  }
+});
+
 app.listen(process.env.PORT, ()=> {
-    console.log("Escuchando en http://127.0.0.1:4000");
+    console.log("Escuchando en http://10.0.1.16:4000");
 })
