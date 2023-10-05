@@ -9,16 +9,11 @@ const cors = require('cors');
 const { MongoClient } = require('mongodb');
 const URL = ""; //url de coneccion a Mongodb
 
-
-
 const cliente = new MongoClient(URL);
 
 const dbnombre = "users";
 const coleccion = "Usuarios";
 let DB_coleccion = cliente.db(dbnombre).collection(coleccion); //node_prueba.Usuarios
-
-
-
 
 app.use(bodyParser.urlencoded({
   extended: true
