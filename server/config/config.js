@@ -2,12 +2,12 @@ process.env.PORT = process.env.PORT || 4000;
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
-let urlDB = "";
+let urlDB = "mongodb://root:example@10.1.0.16:27017/data/edemsa";
 
 if (process.env.NODE_ENV === 'dev') {
-    urlDB = "";
+    urlDB = "mongodb://root:example@10.1.0.16:27017/data/edemsa";
 } else {
-    urlDB = ""
+    urlDB = "mongodb://root:example@10.1.0.16:27017/data/edemsa"
 };
 
 process.env.URLDB = urlDB;
