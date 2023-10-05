@@ -31,7 +31,7 @@ app.use(express.static(__dirname + "/server"));
 app.use(express.json());
 
 app.get('*', (req, res)=> {
-  const index = path.resolve(__dirname, '../Proyecto', './public', './page', 'index.html' );
+  const index = path.resolve(__dirname,'./public', './page', 'index.html' );
   res.sendFile(index);
 });
 
@@ -69,5 +69,5 @@ app.post('/guardar-datos', async (req, res) => {
 });
 
 app.listen(process.env.PORT, ()=> {
-    console.log("Escuchando en http://10.0.1.16:4000");
+    console.log("Escuchando en localhost:4000");
 })
