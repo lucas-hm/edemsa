@@ -26,7 +26,7 @@ let usuarioSchema = new Schema({
     },
 });
 
-const mongoURI = ""; 
+const mongoURI = "mongodb://root:example@10.1.0.16:27017/data/edemsa"; 
 
 const connectToMongo = async () => {
   try {
