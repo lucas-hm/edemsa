@@ -1,20 +1,13 @@
 {
-  "name": "edemsa",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lucas-hm/edemsa.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/lucas-hm/edemsa/issues"
-  },
-  "homepage": "https://github.com/lucas-hm/edemsa#readme"
+  "name": "proyecto",
+  "lockfileVersion": 2,
+  "requires": true,
+  "packages": {},
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongodb": "^6.1.0",
+    "mongoose": "^7.5.4",
+    "nodemon": "^3.0.1"
+  }
 }
