@@ -2,6 +2,12 @@ var user = document.getElementById("user").required;
 var ID = document.getElementById("ID").required;
 var garantia = document.getElementById("garantia");
 var fecha = document.getElementById("fecha");
+var proveedor = document.getElementById("proveedor");
+var uso = document.getElementById("uso");
+var tipo = document.getElementById("tipo");
+var observacion = document.getElementById("observacion");
+var user = document.getElementById("user");
+
 
 function validateEmail(user) {
     // regular expression for email validation

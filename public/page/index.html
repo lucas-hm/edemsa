@@ -6,26 +6,11 @@
 <body>
     <div class="container" id="Registro">
         <div>
-            <label for="user" class="form-label">
-                Usuario
-            </label>
-            <input type="email" class="form-control" id="user" placeholder="name">
-        </div>
-        <div>
-            <label for="ID" class="form-label">
-                Inserte NIC
-            </label>
-            <input type="text" class="form-control" id="ID" placeholder="number">
-        </div>
-        <div>
-            <label for="user" class="form-label">
-                Inserte una garantia
-            </label>
-            <input type="number" min="0" class="form-control" id="garantia" placeholder="garantes">
-        </div>
-        <div>
             <label for="user" class="form-label" id="fecha">
                 Ingrese fecha de compra
+
+                <input type="number" min="2020" class="form-control" placeholder="Año">
+
                 <select name="month">
                     <option value="month">Month</option>
                     <option value="january">Enero</option>
@@ -76,7 +61,43 @@
                     <option value="2">30</option>
                     <option value="2">31</option>
                 </select>
-                <button type="button" id="submit"></button>
+        </div>
+        <div>
+            <label /n/n for="user" class="form-label">
+                Tipo
+            </label>
+            <input type="email" class="form-control" id="tipo" placeholder="name">
+        </div>
+        <div>
+            <label for="user" class="form-label">
+                Plazo de garantia
+            </label>
+            <input type="number" min="0" class="form-control" id="garantia" placeholder="garantes">
+        </div>
+        <div>
+            <label /n/n for="user" class="form-label">
+                Proveedor
+            </label>
+            <input type="email" class="form-control" id="proveedor" placeholder="name">
+        </div>
+        <div>
+            <label /n/n for="user" class="form-label">
+                Bien de uso
+            </label>
+            <input type="email" class="form-control" id="uso" placeholder="name">
+        </div>
+        <div>
+            <label for="user" class="form-label">
+                Numero de puesto
+            </label>
+            <input type="number" min="0" class="form-control" id="puesto" placeholder="garantes">
+        </div>
+        <label /n/n for="user" class="form-label">
+            Observaciones
+        </label>
+        <input type="text" class="form-control" id="observacion" placeholder="Ingrese Observaciones">
+        <div>
+                <button type="button" id="submit" width="100" height="100">Añadir</button>
         </div>
     </div>
 </body>

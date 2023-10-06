@@ -3,6 +3,13 @@ let ID = document.getElementById("ID");
 let user = document.getElementById("user");
 let garantia = document.getElementById("garantia");
 let fecha = document.getElementById("fecha");
+let proveedor = document.getElementById("proveedor");
+let observacion = document.getElementById("observacion");
+let uso = document.getElementById("uso");
+let tipo = document.getElementById("tipo");
+
+
+
 let button = document.getElementById("submit");
 
 
