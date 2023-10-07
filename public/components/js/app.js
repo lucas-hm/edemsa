@@ -1,32 +1,39 @@
-var user = document.getElementById("user").required;
-var ID = document.getElementById("ID").required;
-var garantia = document.getElementById("garantia");
-var fecha = document.getElementById("fecha");
-var proveedor = document.getElementById("proveedor");
-var uso = document.getElementById("uso");
-var tipo = document.getElementById("tipo");
-var observacion = document.getElementById("observacion");
-var user = document.getElementById("user");
+// Obtener referencias a los elementos del formulario
+const registrationForm = document.getElementById("registrationForm");
+const user = document.getElementById("user");
+const ID = document.getElementById("ID");
+const garantia = document.getElementById("garantia");
+const submitButton = document.getElementById("submit");
 
-
-function validateEmail(user) {
-    // regular expression for email validation
-    const pattern = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
-
-    // return true if the email matches the pattern, false otherwise.
-    return pattern.test(user);
+// Agregar un evento click al botón de enviar
+submitButton.addEventListener("click", function () {
+// Validar los campos (puedes agregar más validaciones según tus necesidades)
+if (user.value.trim() === "") {
+alert("Por favor, ingrese un usuario");
+    return;
 }
 
-// Emails to test
-const emails = ["answers@educative.io", "answers@educative"];
-
-for (let i = 0; i < emails.length; i++) {
-
-    if (validateEmail(emails[i])) {
-        console.log("The email \"" + emails[i] + "\" is a valid email address.");
-    } else {
-        console.log("The email \"" + emails[i]+ "\" is an invalid email address.");
-    }
+if (ID.value.trim() === "") {
+    alert("Por favor, ingrese un NIC");
+        return;
 }
 
-document.getElementById("submit").innerHTML;
+if (garantia.value < 0) {
+    alert("La garantía debe ser un número positivo");
+        return;
+}
+
+// Obtener los valores de los campos
+const usuario = user.value;
+const nic = ID.value;
+const tiempoGarantia = garantia.value;
+const mesCompra = document.querySelector("select[name='month']").value;
+const diaCompra = document.querySelector("select[name='days']").value;
+
+// Ejemplo: Mostrar los datos en la consola
+    console.log("Usuario:", usuario);
+    console.log("NIC:", nic);
+    console.log("Garantía (meses):", tiempoGarantia);
+    console.log("Mes de compra:", mesCompra);
+    console.log("Día de compra:", diaCompra);
+});
