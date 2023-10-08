@@ -68,6 +68,11 @@ app.post('/guardar-datos', async (req, res) => {
   }
 });
 
+// hmoe page to watch a list of all the machines
+app.get('/', function(req, res) {
+  res.render('pages/home');
+});
+
 app.listen(process.env.PORT, ()=> {
     console.log("Escuchando en localhost:4000");
 })
