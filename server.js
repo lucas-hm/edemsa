@@ -67,11 +67,6 @@ app.post('/crearCuenta', async (req, res) => {
   }
 });
 
-// hmoe page to watch a list of all the machines
-app.get('/', function(req, res) {
-  res.render('pages/home');
-});
-
 app.listen(process.env.PORT, ()=> {
     console.log("Escuchando en 10.1.0.16:4000");
 })
