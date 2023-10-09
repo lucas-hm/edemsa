@@ -45,8 +45,7 @@ const machineSchema = new mongoose.Schema({
   user: String,
   ID: String,
   garantia: Number,
-  month: String,
-  days: String
+  fecha: String,
 });
 
 // Crear un modelo a partir del esquema
@@ -56,7 +55,7 @@ const Machine = mongoose.model('Machine', machineSchema);
 app.use(bodyParser.json());
 
 // Ruta para guardar datos en la base de datos
-app.post('/guardar-datos', async (req, res) => {
+app.post('/crearCuenta', async (req, res) => {
   try {
     const { user, ID, garantia, month, days } = req.body;
     const machine = new Machine({ user, ID, garantia, month, days });

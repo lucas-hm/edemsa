@@ -1,39 +1,23 @@
-// Obtener referencias a los elementos del formulario
-const registrationForm = document.getElementById("registrationForm");
-const user = document.getElementById("user");
-const ID = document.getElementById("ID");
-const garantia = document.getElementById("garantia");
-const submitButton = document.getElementById("submit");
+document.getElementById('submit').addEventListener('click', function () {
+    // Get form data
+    const fecha = document.querySelector('#fecha input[type="number"]').value;
+    const month = document.querySelector('select[name="month"]').value;
+    const days = document.querySelector('select[name="days"]').value;
+    const tipo = document.getElementById('tipo').value;
+    const garantia = document.getElementById('garantia').value;
+    const proveedor = document.getElementById('proveedor').value;
+    const uso = document.getElementById('uso').value;
+    const puesto = document.getElementById('puesto').value;
+    const observacion = document.getElementById('observacion').value;
 
-// Agregar un evento click al botón de enviar
-submitButton.addEventListener("click", function () {
-// Validar los campos (puedes agregar más validaciones según tus necesidades)
-if (user.value.trim() === "") {
-alert("Por favor, ingrese un usuario");
-    return;
-}
-
-if (ID.value.trim() === "") {
-    alert("Por favor, ingrese un NIC");
-        return;
-}
-
-if (garantia.value < 0) {
-    alert("La garantía debe ser un número positivo");
-        return;
-}
-
-// Obtener los valores de los campos
-const usuario = user.value;
-const nic = ID.value;
-const tiempoGarantia = garantia.value;
-const mesCompra = document.querySelector("select[name='month']").value;
-const diaCompra = document.querySelector("select[name='days']").value;
-
-// Ejemplo: Mostrar los datos en la consola
-    console.log("Usuario:", usuario);
-    console.log("NIC:", nic);
-    console.log("Garantía (meses):", tiempoGarantia);
-    console.log("Mes de compra:", mesCompra);
-    console.log("Día de compra:", diaCompra);
+    // Log the form data to the console
+    console.log('Fecha de compra:', fecha);
+    console.log('Month:', month);
+    console.log('Days:', days);
+    console.log('Tipo:', tipo);
+    console.log('Plazo de garantia:', garantia);
+    console.log('Proveedor:', proveedor);
+    console.log('Bien de uso:', uso);
+    console.log('Numero de puesto:', puesto);
+    console.log('Observaciones:', observacion);
 });
