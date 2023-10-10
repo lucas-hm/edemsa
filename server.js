@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { MongoClient } = require('mongodb');
-const URL = "mongodb://root:example@10.1.0.16:27017/data/edemsa"; //url de coneccion a Mongodb
+const URL = "mongodb://root:example@10.1.0.16:27017/"; //url de coneccion a Mongodb
 
 const cliente = new MongoClient(URL);
 
@@ -35,11 +35,6 @@ app.get('*', (req, res)=> {
   res.sendFile(index);
 });
 
-mongoose.connect('mongodb://root:example@10.1.0.16:27017/data/edemsa', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
-
 // Definir un esquema para los datos que deseas almacenar
 const machineSchema = new mongoose.Schema({
   user: String,
@@ -55,7 +50,7 @@ const Machine = mongoose.model('Machine', machineSchema);
 app.use(bodyParser.json());
 
 // Ruta para guardar datos en la base de datos
-app.post('/crearCuenta', async (req, res) => {
+app.post('/registrar', async (req, res) => {
   try {
     const { user, ID, garantia, month, days } = req.body;
     const machine = new Machine({ user, ID, garantia, month, days });
@@ -68,5 +63,5 @@ app.post('/crearCuenta', async (req, res) => {
 });
 
 app.listen(process.env.PORT, ()=> {
-    console.log("Escuchando en 10.1.0.16:4000");
+    console.log("Escuchando en http://10.1.0.16:4000/registrar");
 })
