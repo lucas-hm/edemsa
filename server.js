@@ -60,8 +60,22 @@ app.post('/registrar', async (req, res) => {
     console.error('Error al guardar datos:', error);
     res.status(500).json({ error: 'Hubo un error al guardar los datos' });
   }
+  console.log(req.body)
+  let insertUser = await DB_coleccion.insertOne(req.body)
+  res.send({"msg":"everything went correctly"})
+});
+
+mongoose.connect(URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => {
+  console.log('Connected to MongoDB');
+})
+.catch((error) => {
+  console.error('MongoDB Connection Error:', error);
 });
 
 app.listen(process.env.PORT, ()=> {
-    console.log("Escuchando en http://10.1.0.16:4000/registrar");
+    console.log("Escuchando en http://10.1.0.16:4000");
 })
