@@ -7,11 +7,11 @@ let rolesValidos = {
 let Schema = mongoose.Schema;
 
 let usuarioSchema = new Schema({
-    nombre: {
+    user: {
         type: String,
         required: [true, 'El nombre es necesario'],
     },
-    id: {
+    ID: {
         type: String,
         unique: true,
         required: [true, "El id es necesario"],
@@ -26,7 +26,7 @@ let usuarioSchema = new Schema({
     },
 });
 
-const mongoURI = "mongodb://root:example@10.1.0.16:27017/data/edemsa"; 
+const mongoURI = "mongodb://root:example@10.1.0.16:27017/"; 
 
 const connectToMongo = async () => {
   try {
