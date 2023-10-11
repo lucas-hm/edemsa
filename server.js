@@ -50,7 +50,7 @@ const Machine = mongoose.model('Machine', machineSchema);
 app.use(bodyParser.json());
 
 // Ruta para guardar datos en la base de datos
-app.post('/registrar', async (req, res) => {
+app.post('/machine', async (req, res) => {
   try {
     const { user, ID, garantia, month, days } = req.body;
     const machine = new Machine({ user, ID, garantia, month, days });
