@@ -15,7 +15,6 @@ async function  handleSubmit(){
     const respuesta = await fetch(`${API}/register`,{
       method:"POST",
     body: JSON.stringify ({
-      ID:ID.value,
       user:user.value,
       proveedor:proveedor.value,
       observaciones:observaciones.value,
