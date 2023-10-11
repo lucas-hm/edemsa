@@ -24,6 +24,35 @@ let usuarioSchema = new Schema({
     type: String,
     required: [true, "La garantia es obligatoria"],
     },
+    tipo: {
+      type: String,
+      required: [true, 'El nombre es necesario'],
+  },
+  month: {
+      type: Date,
+      unique: true,
+      required: [true, "El id es necesario"],
+  },
+  days: {
+      type: Date,
+      required: [true, "La fecha es obligatoria"],
+  },
+  uso: {
+  type: String,
+  required: [true, "La garantia es obligatoria"],
+  },
+  puesto: {
+    type: String,
+    required: [true, "La fecha es obligatoria"],
+  },
+  proveedor: {
+    type: String,
+    required: [true, "La garantia es obligatoria"],
+  },
+  observaciones: {
+    type: String,
+    required: [true, "la observacion es requerida"],
+  },
 });
 
 const mongoURI = "mongodb://root:example@10.1.0.16:27017/"; 

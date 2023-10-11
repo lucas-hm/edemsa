@@ -2,7 +2,7 @@ const express = require('express');
 const Usuario = require('./../models/machine.js');
 const app = express();
 
-app.post('/login', function (req, res) {
+app.post('/machine', function (req, res) {
     let body = req.body;
 
     Usuario.findOne({ user: body.user }, (erro, usuarioDB)=>{

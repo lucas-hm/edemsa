@@ -3,15 +3,22 @@ const Usuario = require('./../models/machine.js');
 const app = express();
 
  
-app.post('/register', function (req, res) {
+app.post('/machine', function (req, res) {
     let body = req.body;
 
-    let { nombre, id, fecha, garantia } = body;
+    let { user, ID, fecha, garantia, month, days, uso, puesto, proveedor, observacion, tipo} = body;
     let usuario = new Usuario({
-      nombre,
-      id,
-      fecha,
-      garantia,
+      user, 
+      ID,
+      garantia, 
+      month, 
+      days, 
+      fecha, 
+      tipo, 
+      proveedor, 
+      uso, 
+      observacion, 
+      puesto,
     });
 
     usuario.save((err, usuarioDB) => {

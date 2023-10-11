@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { MongoClient } = require('mongodb');
+const { time } = require('console');
 const URL = "mongodb://root:example@10.1.0.16:27017/"; //url de coneccion a Mongodb
 
 const cliente = new MongoClient(URL);
@@ -39,8 +40,15 @@ app.get('*', (req, res)=> {
 const machineSchema = new mongoose.Schema({
   user: String,
   ID: String,
-  garantia: Number,
-  fecha: String,
+  garantia: Date,
+  fecha: Date,
+  observacion: String,
+  month: Date,
+  days: Date,
+  tipo: String,
+  proveedor: String,
+  uso: String,
+  puesto: String,
 });
 
 // Crear un modelo a partir del esquema
@@ -53,7 +61,7 @@ app.use(bodyParser.json());
 app.post('/machine', async (req, res) => {
   try {
     const { user, ID, garantia, month, days } = req.body;
-    const machine = new Machine({ user, ID, garantia, month, days });
+    const machine = new Machine({ user, ID, fecha, garantia, month, days, uso, puesto, proveedor, observacion, tipo});
     await machine.save();
     res.status(201).json({ message: 'Datos guardados con éxito' });
   } catch (error) {
