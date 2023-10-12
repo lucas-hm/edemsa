@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { MongoClient } = require('mongodb');
-const { time } = require('console');
 const URL = "mongodb://root:example@10.1.0.16:27017/data/edemsa"; //url de coneccion a Mongodb
 
 const cliente = new MongoClient(URL);
@@ -35,25 +34,6 @@ app.get('*', (req, res)=> {
   const index = path.resolve(__dirname,'./public', './page', 'index.html' );
   res.sendFile(index);
 });
-
-// Definir un esquema para los datos que deseas almacenar
-const machineSchema = new mongoose.Schema({
-  user: String,
-  ID: String,
-  garantia: Date,
-  fecha: Date,
-  observacion: String,
-  month: Date,
-  days: Date,
-  tipo: String,
-  proveedor: String,
-  uso: String,
-  puesto: String,
-});
-
-// Crear un modelo a partir del esquema
-const Machine = mongoose.model('Machine', machineSchema);
-
 // Middleware para analizar datos JSON en las solicitudes POST
 app.use(bodyParser.json());
 
@@ -67,12 +47,11 @@ app.post('/machine', async (req, res) => {
 mongoose.connect(URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-})
-.then(() => {
-  console.log('Connected to MongoDB');
-})
-.catch((error) => {
-  console.error('MongoDB Connection Error:', error);
+  }).then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((error) => {
+    console.error('MongoDB Connection Error:', error);
 });
 
 app.listen(process.env.PORT, ()=> {
