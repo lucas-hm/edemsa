@@ -60,7 +60,7 @@ app.use(bodyParser.json());
 // Ruta para guardar datos en la base de datos
 app.post('/machine', async (req, res) => {
   try {
-    const { user, ID, garantia, month, days } = req.body;
+    const { user, ID, fecha, garantia, month, days, uso, puesto, proveedor, observacion, tipo } = req.body;
     const machine = new Machine({ user, ID, fecha, garantia, month, days, uso, puesto, proveedor, observacion, tipo});
     await machine.save();
     res.status(201).json({ message: 'Datos guardados con éxito' });
