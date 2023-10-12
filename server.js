@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const { MongoClient } = require('mongodb');
 const { time } = require('console');
-const URL = "mongodb://root:example@10.1.0.16:27017/"; //url de coneccion a Mongodb
+const URL = "mongodb://root:example@10.1.0.16:27017/data/edemsa"; //url de coneccion a Mongodb
 
 const cliente = new MongoClient(URL);
 
@@ -59,15 +59,6 @@ app.use(bodyParser.json());
 
 // Ruta para guardar datos en la base de datos
 app.post('/machine', async (req, res) => {
-  try {
-    const { user, ID, garantia, month, days } = req.body;
-    const machine = new Machine({ user, ID, fecha, garantia, month, days, uso, puesto, proveedor, observacion, tipo});
-    await machine.save();
-    res.status(201).json({ message: 'Datos guardados con éxito' });
-  } catch (error) {
-    console.error('Error al guardar datos:', error);
-    res.status(500).json({ error: 'Hubo un error al guardar los datos' });
-  }
   console.log(req.body)
   let insertUser = await DB_coleccion.insertOne(req.body)
   res.send({"msg":"everything went correctly"})

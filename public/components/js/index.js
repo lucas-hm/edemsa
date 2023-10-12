@@ -1,40 +1,36 @@
 let API = "http://10.1.0.16:4000";
+const machineForm = document.getElementById('machineForm');
+
+let user = document.getElementById("user");
+let ID = document.getElementById("ID");
+let garantia = document.getElementById("garantia");
+let tipo = document.getElementById("tipo");
+let fecha = document.getElementById("fecha");
+let month = document.getElementById("fecha");
+let days = document.getElementById("fecha");
+let uso = document.getElementById("uso");
+let puesto = document.getElementById("puesto");
+let proveedor = document.getElementById("proveedor");
+let observacion = document.getElementById("observacion");
 
 document.addEventListener('DOMContentLoaded', function () {
-  const machineForm = document.getElementById('machineForm');
   let btnSubmit = document.getElementById('btnSubmit');
   btnSubmit.addEventListener('click', function () {
-    const fecha = document.getElementById('fecha');
-    const month = document.getElementById('month');
-    const days = document.getElementById('days');
-    const user = document.getElementById('user');
-    const observacion = document.getElementById('observacion');
-    const garantia = document.getElementById('garantia');
-    const puesto = document.getElementById('puesto');
-    const uso = document.getElementById('uso');
-    const proveedor = document.getElementById('proveedor');
-    const tipo = document.getElementById('tipo');
-    // Crear un objeto que contenga los datos a enviar al servidor
-    const data = {
-      fecha,
-      month,
-      days,
-      user,
-      tipo,
-      garantia,
-      proveedor,
-      uso,
-      puesto,
-      observacion
-    };
-
-    // Realizar una solicitud POST al servidor
     fetch(`${API}/machine`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
+      body: JSON.stringify ({
+        user:user.Value,
+        ID:ID.Value,
+        garantia:garantia.Value,
+        tipo:tipo.Value,
+        fecha:fecha.Value,
+        month:month.Value,
+        days:days.Value,
+        uso:uso.Value,
+        puesto:puesto.Value,
+        proveedor:proveedor.Value,
+        observacion:observacion.Value,
+      }),
     })
       .then(response => response.json())
       .then(responseData => {
