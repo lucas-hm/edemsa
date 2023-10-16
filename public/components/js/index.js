@@ -13,32 +13,28 @@ let puesto = document.getElementById("puesto");
 let proveedor = document.getElementById("proveedor");
 let observacion = document.getElementById("observacion");
 
-document.addEventListener('DOMContentLoaded', function () {
-  let btnSubmit = document.getElementById('btnSubmit');
-  btnSubmit.addEventListener('click', function () {
-    fetch(`${API}/machine`, {
-      method: 'POST',
-      body: JSON.stringify ({
-        user:user.Value,
-        ID:ID.Value,
-        garantia:garantia.Value,
-        tipo:tipo.Value,
-        fecha:fecha.Value,
-        month:month.Value,
-        days:days.Value,
-        uso:uso.Value,
-        puesto:puesto.Value,
-        proveedor:proveedor.Value,
-        observacion:observacion.Value,
-      }),
-    })
-      .then(response => response.json())
-      .then(responseData => {
-        // Realizar acciones adicionales si es necesario con la respuesta del servidor
-        console.log('Respuesta del servidor:', responseData);
-      })
-      .catch(error => {
-        console.error('Error al enviar los datos al servidor:', error);
-      });
-  });
-});
+let btnSubmit = document.getElementById('btnSubmit');
+
+async function  handleSubmit(){
+  console.log(username.value)
+  const respuesta = await fetch(`${API}/machine`,{
+    method:"POST",
+  body: JSON.stringify ({
+    user:user.value,
+    ID:ID.value,
+    garantia:garantia.value,
+    tipo:tipo.value,
+    fecha:fecha.value,
+    month:month.value,
+    days:days.value,
+    uso:uso.value,
+    puesto:puesto.value,
+    proveedor:proveedor.value,
+    observacion:observacion.value
+  })
+  }); 
+  res = await respuesta.json()
+  console.log(res)
+  }
+
+btnSubmit.addEventListener("click",btnSubmit)
