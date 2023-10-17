@@ -17,7 +17,7 @@ let usuarioSchema = new Schema({
         required: [true, "El id es necesario"],
     },
     fecha: {
-        type: String,
+        type: Array,
         required: [true, "La fecha es obligatoria"],
     },
     garantia: {
@@ -27,16 +27,7 @@ let usuarioSchema = new Schema({
     tipo: {
       type: String,
       required: [true, 'El nombre es necesario'],
-  },
-  month: {
-      type: Date,
-      unique: true,
-      required: [true, "El id es necesario"],
-  },
-  days: {
-      type: Date,
-      required: [true, "La fecha es obligatoria"],
-  },
+    },
   uso: {
   type: String,
   required: [true, "La garantia es obligatoria"],
