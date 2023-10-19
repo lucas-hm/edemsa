@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { MongoClient } = require('mongodb');
-const URL = "mongodb://root:example@10.1.0.16:27017/data/edemsa"; //url de coneccion a Mongodb
+const URL = "mongodb://root:example@10.1.0.16:27017/"; //url de coneccion a Mongodb
 
 const cliente = new MongoClient(URL);
 
@@ -30,9 +30,14 @@ app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/server"));
 app.use(express.json());
 
-app.get('*', (req, res)=> {
+app.get('/', (req, res)=> {
   const index = path.resolve(__dirname,'./public', './page', 'index.html' );
   res.sendFile(index);
+});
+
+app.get('/listado', function (req, res) {
+ const listado = path.resolve(__dirname, './public', './page', 'listado.html');
+ res.sendFile(listado);
 });
 // Middleware para analizar datos JSON en las solicitudes POST
 app.use(bodyParser.json());
