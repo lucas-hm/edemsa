@@ -6,4 +6,4 @@ https://thewhitecode.com/blog/9986
 
 Address of app: http://10.1.0.16:4000
 
-Nodejs, express, mongodb, mongoclient, mongoose, nodemon, cors, bodyParser
+Nodejs, express, mongodb, mongoclient, mongoose, nodemon, cors, bodyParser, handlebars
